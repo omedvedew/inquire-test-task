@@ -52,6 +52,44 @@ const PostPage = ({
         }))
     };
 
+    const deletePost = () => {
+        axios.delete(`https://bloggy-api.herokuapp.com/posts/${state.postToBeRenderedId}`);
+        setCurrentPost(() => ({
+            isPostDeleted: true
+        }));
+    };
+
+    const [newComment, setNewComment] = useState({
+        isCommentSent: false
+    });
+
+    const handleCommentContent = (e) => {
+        setNewComment(prevState => ({
+            ...prevState,
+            body: e.target.value
+        }))
+    };
+    const handleCommentAuthor = (e) => {
+        setNewComment(prevState => ({
+            ...prevState,
+            author: e.target.value
+        }))
+    };
+
+    const sendComment = (e) => {
+        e.preventDefault();
+        axios.post(`https://bloggy-api.herokuapp.com/comments`, {
+            postId: state.postToBeRenderedId,
+            body: newComment.body,
+            id: newComment.author,
+        })
+        setNewComment(() => ({
+            isCommentSent: true
+        }))
+    };
+
+    console.log(newComment);
+
     const renderPostPage = () => {
         return (
             <>
@@ -71,29 +109,37 @@ const PostPage = ({
                                 )
                                 : renderNoCommentsMessage() 
                             }
+                            {
+                                newComment.isCommentSent === false ?
+                                <>
+                                    <h3 className="m-p-p_comments-title">Add new comment:</h3>
+                                    <form className="m-p-p_form" onSubmit={sendComment}>
+                                        <input type="text" placeholder="Enter your name" className="m-p-p_input" onChange={handleCommentAuthor}/>
+                                        <textarea className="m-p-p_input" rows="5" placeholder="Enter comment" onChange={handleCommentContent}/>
+                                        <button className="m-p-p_send-btn" type="submit">send</button>
+                                    </form>
+                                </>
+                                : <h3 className="m-p-p_comments-title">Thanks for your comment!</h3>
+                            }
+                            
                         </div>
-                        {
-                            currentPost.isPostChanged === false ?
-                            <button className="m-p-p_change-btn" onClick={handleChangeState}>change this post</button>
-                            : 
-                            <PostChangeForm
-                                id={state.postToBeRenderedId}
-                            />
-                        }
-                        <button className="m-p-p_delete-btn" onClick={deletePost}>delete this post</button>
+                        <div className="m-p-p_buttons-container">
+                            {
+                                currentPost.isPostChanged === false ?
+                                <button className="m-p-p_change-btn" onClick={handleChangeState}>change this post</button>
+                                : 
+                                <PostChangeForm
+                                    id={state.postToBeRenderedId}
+                                />
+                            }
+                            <button className="m-p-p_delete-btn" onClick={deletePost}>delete this post</button>
+                        </div>
                     </div> 
                     : renderMessage()
                 }
             </>
         )
     }
-
-    const deletePost = () => {
-        axios.delete(`https://bloggy-api.herokuapp.com/posts/${state.postToBeRenderedId}`);
-        setCurrentPost(prevState => ({
-            isPostDeleted: true
-        }));
-    };
 
     return (
         <div className="main__post-page">

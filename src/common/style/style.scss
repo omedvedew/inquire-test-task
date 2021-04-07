@@ -205,6 +205,7 @@
                     padding: 15px;
                     background-color: #fff;
                     border: 5px solid rgba(0, 0, 0, 0.4);
+                    margin-bottom: 25px;
 
                     .comment {
                         display: flex;
@@ -216,6 +217,44 @@
                         }
                     }
                 }
+
+                .m-p-p_form {
+                    display: flex;
+                    width: 100%;
+                    align-self: center;
+                    flex-direction: column;
+
+                    .m-p-p_input {
+                        @include inputTag;
+                        width: 100%;
+                        margin-bottom: 15px;
+                    }
+                    .m-p-p_input:hover {
+                        @include inputHover;
+                    }
+                    .m-p-p_input:focus {
+                        @include inputFocus;
+                    }
+
+                    .m-p-p_send-btn {
+                        @include formSubmitBtn;
+                        align-self: flex-end;
+                        margin-bottom: 10px;
+                    }
+                    .m-p-p_send-btn:hover {
+                        @include formSubmitBtnHover;
+                    }
+                    .m-p-p_send-btn:focus {
+                        @include formSubmitBtnFocus;
+                    }
+                }
+            }
+
+            .m-p-p_buttons-container {
+                display: flex;
+                width: 80%;
+                align-self: center;
+                justify-content: space-evenly;
             }
 
             .m-p-p_post-change-form {
@@ -267,7 +306,7 @@
                 transition: all 0.3s;
                 border: 1px solid black;
                 border-radius: 1rem;
-                margin: 25px 0;
+                margin: 0 0 25px 0;
             }
             .m-p-p_delete-btn:hover {
                 transition: all 0.3s;
@@ -292,7 +331,7 @@
                 border-radius: 1rem;
                 text-decoration: none;
                 color: black;
-                margin: 25px 0;
+                margin: 0 0 25px 0;
             }
             .m-p-p_change-btn:hover {
                 transition: all 0.3s;

@@ -185,6 +185,7 @@
   padding: 15px;
   background-color: #fff;
   border: 5px solid rgba(0, 0, 0, 0.4);
+  margin-bottom: 25px;
 }
 .main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_comments_comments-box .comment {
   display: flex;
@@ -193,6 +194,62 @@
 }
 .main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_comments_comments-box .comment h4 {
   margin-bottom: 5px;
+}
+.main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form {
+  display: flex;
+  width: 100%;
+  align-self: center;
+  flex-direction: column;
+}
+.main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form .m-p-p_input {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form .m-p-p_input:hover {
+  border-color: #009696;
+  transition: all 0.3s;
+}
+.main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form .m-p-p_input:focus {
+  outline: none;
+  transition: all 0.3s;
+  border-color: #009696;
+  background-color: #fff;
+}
+.main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form .m-p-p_send-btn {
+  display: flex;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  transition: all 0.3s;
+  margin-bottom: 50px;
+  align-self: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+.main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form .m-p-p_send-btn:hover {
+  transition: all 0.3s;
+  transform: scale(1.2);
+  background: linear-gradient(to bottom, aqua, #009696);
+  box-shadow: 0px 5px 15px rgba(0, 55, 55, 0.6);
+  cursor: pointer;
+}
+.main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form .m-p-p_send-btn:focus {
+  outline: none;
+  transition: all 0.3s;
+  transform: scale(0);
+}
+.main .main__post-page .main__post-page__post .m-p-p_buttons-container {
+  display: flex;
+  width: 80%;
+  align-self: center;
+  justify-content: space-evenly;
 }
 .main .main__post-page .main__post-page__post .m-p-p_post-change-form {
   display: flex;
@@ -261,7 +318,7 @@
   transition: all 0.3s;
   border: 1px solid black;
   border-radius: 1rem;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 .main .main__post-page .main__post-page__post .m-p-p_delete-btn:hover {
   transition: all 0.3s;
@@ -285,7 +342,7 @@
   border-radius: 1rem;
   text-decoration: none;
   color: black;
-  margin: 25px 0;
+  margin: 0 0 25px 0;
 }
 .main .main__post-page .main__post-page__post .m-p-p_change-btn:hover {
   transition: all 0.3s;

@@ -232,6 +232,7 @@
   border-radius: 1rem;
   align-self: flex-end;
   margin-bottom: 10px;
+  margin-right: 50px;
 }
 .main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_form .m-p-p_send-btn:hover {
   transition: all 0.3s;
@@ -422,6 +423,19 @@
   outline: none;
   transition: all 0.3s;
   transform: scale(0);
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  background-color: #333333;
+  color: white;
+  justify-content: space-evenly;
+}
+.footer p {
+  width: 33.3%;
+  text-align: center;
+  margin: 10px 0;
 }
 
 /*# sourceMappingURL=style.css.map */

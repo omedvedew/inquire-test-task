@@ -240,6 +240,7 @@
                         @include formSubmitBtn;
                         align-self: flex-end;
                         margin-bottom: 10px;
+                        margin-right: 50px;
                     }
                     .m-p-p_send-btn:hover {
                         @include formSubmitBtnHover;
@@ -397,5 +398,19 @@
                 @include formSubmitBtnFocus;
             }
         }
+    }
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    justify-content: space-evenly;
+
+    p {
+        width: 33.3%;
+        text-align: center;
+        margin: 10px 0;
     }
 }

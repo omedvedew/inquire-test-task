@@ -50,6 +50,7 @@
   text-decoration: none;
   color: black;
   padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
   transition: all 0.3s;
   border: 1px solid transparent;
   border-radius: 1rem;
@@ -192,6 +193,69 @@
 }
 .main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_comments_comments-box .comment h4 {
   margin-bottom: 5px;
+}
+.main .main__new-post-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 80%;
+}
+.main .main__new-post-page .main__new-post-page__title {
+  display: flex;
+  margin-bottom: 25px;
+}
+.main .main__new-post-page .main__new-post-page__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_input-box .m-n-f_input-title {
+  margin-bottom: 10px;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_input-box .m-n-f_input {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_input-box .m-n-f_input:hover {
+  border-color: #009696;
+  transition: all 0.3s;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_input-box .m-n-f_input:focus {
+  outline: none;
+  transition: all 0.3s;
+  border-color: #009696;
+  background-color: #fff;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_submit-btn {
+  display: flex;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  transition: all 0.3s;
+  margin-bottom: 50px;
+  align-self: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_submit-btn:hover {
+  transition: all 0.3s;
+  transform: scale(1.2);
+  background: linear-gradient(to bottom, aqua, #009696);
+  box-shadow: 0px 5px 15px rgba(0, 55, 55, 0.6);
+  cursor: pointer;
+}
+.main .main__new-post-page .main__new-post-page__form .m-n-f_submit-btn:focus {
+  outline: none;
+  transition: all 0.3s;
+  transform: scale(0);
 }
 
 /*# sourceMappingURL=style.css.map */

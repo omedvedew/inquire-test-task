@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Comments from './Comments';
+import axios from 'axios';
 
 const PostPage = ({
     state,
 }) => {
     console.log(state);
 
-    const [currentPost, setCurrentPost] = useState({});
+    const [currentPost, setCurrentPost] = useState({
+        isPostDeleted: false,
+    });
 
     const getCurrentPost = () => {
         if (state.isPostDownloaded !== true) {
@@ -40,27 +43,47 @@ const PostPage = ({
         )
     };
 
+    const renderPostPage = () => {
+        return (
+            <>
+                {
+                    state.isPostDownloaded === true ?
+                    <div className="main__post-page__post">
+                        <h1 className="m-p-p_title">{currentPost.title}</h1>
+                        <p className="m-p-p_body">{currentPost.body}</p>
+                        <div className="m-p-p_comments">
+                            <h3 className="m-p-p_comments_title">Comments:</h3>
+                            {
+                                currentPost.comments !== undefined && currentPost.comments !== null ?
+                                (currentPost.comments.length > 0?
+                                    <Comments
+                                        currentPost={currentPost}
+                                    /> : renderNoCommentsMessage()
+                                )
+                                : renderNoCommentsMessage() 
+                            }
+                        </div>
+                        <button className="m-p-p_delete-btn" onClick={deletePost}>delete this post</button>
+                    </div> 
+                    : renderMessage()
+                }
+            </>
+        )
+    }
+
+    const deletePost = () => {
+        axios.delete(`https://bloggy-api.herokuapp.com/posts/${state.postToBeRenderedId}`);
+        setCurrentPost(prevState => ({
+            isPostDeleted: true
+        }));
+    };
+
     return (
         <div className="main__post-page">
             {
-                state.isPostDownloaded === true ?
-                <div className="main__post-page__post">
-                    <h1 className="m-p-p_title">{currentPost.title}</h1>
-                    <p className="m-p-p_body">{currentPost.body}</p>
-                    <div className="m-p-p_comments">
-                        <h3 className="m-p-p_comments_title">Comments:</h3>
-                        {
-                            currentPost.comments !== undefined && currentPost.comments !== null ?
-                            (currentPost.comments.length > 0?
-                                <Comments
-                                    currentPost={currentPost}
-                                /> : renderNoCommentsMessage()
-                            )
-                            : renderNoCommentsMessage() 
-                        }
-                    </div>
-                </div> 
-                : renderMessage()
+                currentPost.isPostDeleted === false ?
+                renderPostPage()
+                : <div className="main__post-page__delete-message">This post was deleted! Visit <Link to="/blog">&nbsp;blog page&nbsp;</Link> to see another one.</div>
             }
         </div>
     )

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import "./mixins.scss";
 
 * {
     padding: 0;
@@ -216,6 +217,46 @@
                     }
                 }
             }
+
+            .m-p-p_post-change-form {
+                display: flex;
+                width: 80%;
+                flex-direction: column;
+                align-self: center;
+                margin-top: 25px;
+
+                .m-p-p_form-title {
+                    margin-bottom: 15px;
+                }
+
+                .m-p-p_input-box {
+                    @include inputBox;
+    
+                    .m-p-p_input-title {
+                        @include inputTitle;
+                    }
+    
+                    .m-p-p_input {
+                        @include inputTag;
+                    }
+                    .m-p-p_input:hover {
+                        @include inputHover;
+                    }
+                    .m-p-p_input:focus {
+                        @include inputFocus;
+                    }
+                }
+    
+                .m-p-p_submit-btn {
+                    @include formSubmitBtn;
+                }
+                .m-p-p_submit-btn:hover {
+                    @include formSubmitBtnHover;
+                }
+                .m-p-p_submit-btn:focus {
+                    @include formSubmitBtnFocus;
+                }
+            }
             
             .m-p-p_delete-btn {
                 display: flex;
@@ -237,6 +278,30 @@
                 cursor: pointer;
             }
             .m-p-p_delete-btn:focus {
+                outline: none;
+            }
+
+            .m-p-p_change-btn {
+                display: flex;
+                width: fit-content;
+                align-self: center;
+                padding: 0.5rem 1rem;
+                background-color: transparent;
+                transition: all 0.3s;
+                border: 1px solid black;
+                border-radius: 1rem;
+                text-decoration: none;
+                color: black;
+                margin: 25px 0;
+            }
+            .m-p-p_change-btn:hover {
+                transition: all 0.3s;
+                transform: scale(1.2);
+                background: linear-gradient(to bottom, rgb(10, 155, 10), rgb(0, 50, 0));
+                color: #fff;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            }
+            .m-p-p_change-btn:focus {
                 outline: none;
             }
         }
@@ -266,55 +331,31 @@
             width: 100%;
 
             .m-n-f_input-box {
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 30px;
+                @include inputBox;
 
                 .m-n-f_input-title {
-                    margin-bottom: 10px;
+                    @include inputTitle;
                 }
 
                 .m-n-f_input {
-                    padding: 0.5rem 1rem;
-                    border: 1px solid black;
-                    border-radius: 1rem;
-                    background-color: rgba(255, 255, 255, 0.5);
-                    transition: all 0.3s;
+                    @include inputTag;
                 }
                 .m-n-f_input:hover {
-                    border-color: rgb(0, 150, 150);
-                    transition: all 0.3s;
+                    @include inputHover;
                 }
                 .m-n-f_input:focus {
-                    outline: none;
-                    transition: all 0.3s;
-                    border-color: rgb(0, 150, 150);
-                    background-color: #fff;
+                    @include inputFocus;
                 }
             }
 
             .m-n-f_submit-btn {
-                display: flex;
-                width: fit-content;
-                padding: 0.5rem 1rem;
-                background-color: transparent;
-                transition: all 0.3s;
-                margin-bottom: 50px;
-                align-self: center;
-                border: 1px solid black;
-                border-radius: 1rem;
+                @include formSubmitBtn;
             }
             .m-n-f_submit-btn:hover {
-                transition: all 0.3s;
-                transform: scale(1.2);
-                background: linear-gradient(to bottom, rgb(0, 255, 255), rgb(0, 150, 150));
-                box-shadow: 0px 5px 15px rgba(0, 55, 55, 0.6);
-                cursor: pointer;
+                @include formSubmitBtnHover;
             }
             .m-n-f_submit-btn:focus {
-                outline: none;
-                transition: all 0.3s;
-                transform: scale(0);
+                @include formSubmitBtnFocus;
             }
         }
     }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Comments from './Comments';
 import axios from 'axios';
+import PostChangeForm from './PostChangeForm';
 
 const PostPage = ({
     state,
@@ -11,6 +12,7 @@ const PostPage = ({
 
     const [currentPost, setCurrentPost] = useState({
         isPostDeleted: false,
+        isPostChanged: false,
     });
 
     const getCurrentPost = () => {
@@ -43,6 +45,13 @@ const PostPage = ({
         )
     };
 
+    const handleChangeState = () => {
+        setCurrentPost(prevState => ({
+            ...prevState,
+            isPostChanged: true,
+        }))
+    };
+
     const renderPostPage = () => {
         return (
             <>
@@ -63,6 +72,14 @@ const PostPage = ({
                                 : renderNoCommentsMessage() 
                             }
                         </div>
+                        {
+                            currentPost.isPostChanged === false ?
+                            <button className="m-p-p_change-btn" onClick={handleChangeState}>change this post</button>
+                            : 
+                            <PostChangeForm
+                                id={state.postToBeRenderedId}
+                            />
+                        }
                         <button className="m-p-p_delete-btn" onClick={deletePost}>delete this post</button>
                     </div> 
                     : renderMessage()

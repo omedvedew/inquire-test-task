@@ -194,6 +194,64 @@
 .main .main__post-page .main__post-page__post .m-p-p_comments .m-p-p_comments_comments-box .comment h4 {
   margin-bottom: 5px;
 }
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 25px;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_form-title {
+  margin-bottom: 15px;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_input-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_input-box .m-p-p_input-title {
+  margin-bottom: 10px;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_input-box .m-p-p_input {
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_input-box .m-p-p_input:hover {
+  border-color: #009696;
+  transition: all 0.3s;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_input-box .m-p-p_input:focus {
+  outline: none;
+  transition: all 0.3s;
+  border-color: #009696;
+  background-color: #fff;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_submit-btn {
+  display: flex;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  transition: all 0.3s;
+  margin-bottom: 50px;
+  align-self: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_submit-btn:hover {
+  transition: all 0.3s;
+  transform: scale(1.2);
+  background: linear-gradient(to bottom, aqua, #009696);
+  box-shadow: 0px 5px 15px rgba(0, 55, 55, 0.6);
+  cursor: pointer;
+}
+.main .main__post-page .main__post-page__post .m-p-p_post-change-form .m-p-p_submit-btn:focus {
+  outline: none;
+  transition: all 0.3s;
+  transform: scale(0);
+}
 .main .main__post-page .main__post-page__post .m-p-p_delete-btn {
   display: flex;
   width: fit-content;
@@ -214,6 +272,29 @@
   cursor: pointer;
 }
 .main .main__post-page .main__post-page__post .m-p-p_delete-btn:focus {
+  outline: none;
+}
+.main .main__post-page .main__post-page__post .m-p-p_change-btn {
+  display: flex;
+  width: fit-content;
+  align-self: center;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  transition: all 0.3s;
+  border: 1px solid black;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: black;
+  margin: 25px 0;
+}
+.main .main__post-page .main__post-page__post .m-p-p_change-btn:hover {
+  transition: all 0.3s;
+  transform: scale(1.2);
+  background: linear-gradient(to bottom, #0a9b0a, #003200);
+  color: #fff;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+}
+.main .main__post-page .main__post-page__post .m-p-p_change-btn:focus {
   outline: none;
 }
 .main .main__post-page .main__post-page__delete-message {

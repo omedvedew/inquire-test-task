@@ -1,0 +1,55 @@
+@mixin inputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+@mixin inputTitle {
+    margin-bottom: 10px;
+}
+
+@mixin inputTag {
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s;
+}
+
+@mixin inputHover {
+    border-color: rgb(0, 150, 150);
+    transition: all 0.3s;
+}
+
+@mixin inputFocus {
+    outline: none;
+    transition: all 0.3s;
+    border-color: rgb(0, 150, 150);
+    background-color: #fff;
+}
+
+@mixin formSubmitBtn {
+    display: flex;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    transition: all 0.3s;
+    margin-bottom: 50px;
+    align-self: center;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+@mixin formSubmitBtnHover {
+    transition: all 0.3s;
+    transform: scale(1.2);
+    background: linear-gradient(to bottom, rgb(0, 255, 255), rgb(0, 150, 150));
+    box-shadow: 0px 5px 15px rgba(0, 55, 55, 0.6);
+    cursor: pointer;
+}
+
+@mixin formSubmitBtnFocus {
+    outline: none;
+    transition: all 0.3s;
+    transform: scale(0);
+}

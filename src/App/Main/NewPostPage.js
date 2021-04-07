@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const NewPostPage = ({
-    state,
-    dispatchNewPost,
-}) => {
+const NewPostPage = () => {
     const [newPost, setNewPost] = useState({
         isFormSent: false,
     });
@@ -35,8 +31,7 @@ const NewPostPage = ({
                 randomId.push(chars.charAt(Math.floor(Math.random() * charsLength)));
             }
             return randomId.join('');
-        }
-        dispatchNewPost(getRandomId(), newPost.title, newPost.body);
+        };
         setNewPost((prevState)=> ({
             ...prevState,
             id: getRandomId(),
@@ -58,7 +53,6 @@ const NewPostPage = ({
     };
 
     console.log(newPost);
-    console.log(state);
 
     return (
         <div className="main__new-post-page">
@@ -82,17 +76,4 @@ const NewPostPage = ({
     )
 };
 
-const mapStateToProps = (state) => ({
-    state,
-})
-
-const mapDispatchToProps = dispatch => ({
-    dispatchNewPost: (id, title, body) => dispatch({
-        type: "DISPATCH_NEW_POST",
-        id,
-        title,
-        body
-    })
-});
-
-export default connect(mapStateToProps, mapDispatchToProps) (NewPostPage);
+export default NewPostPage;

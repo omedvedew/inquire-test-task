@@ -8,13 +8,16 @@ import PostChangeForm from './PostChangeForm';
 const PostPage = ({
     state,
 }) => {
+    // Checking if redux works
     console.log(state);
 
+    // Using 'useState' hook to implement current post page
     const [currentPost, setCurrentPost] = useState({
         isPostDeleted: false,
         isPostChanged: false,
     });
 
+    // Function for getting info about post from server
     const getCurrentPost = () => {
         if (state.isPostDownloaded !== true) {
             fetch(`https://bloggy-api.herokuapp.com/posts/${state.postToBeRenderedId}?_embed=comments`)
@@ -29,14 +32,17 @@ const PostPage = ({
         state.isPostDownloaded = true;
         console.log(currentPost);
     };
+    // Calling function to get info from server
     state.postToBeRenderedId ? getCurrentPost() : console.log('waiting for response');
 
+    // Function for rendering message if there are no comments for the current post
     const renderNoCommentsMessage = () => {
         return (
             <div className="m-p-p_comments_comments-box">There is no comments to this post.</div>
         )
     };
 
+    // Function for rendering message if current post wasn't selected or page has been refreshed
     const renderMessage = () => {
         return (
             <div className="main__post-page__message">
@@ -45,6 +51,7 @@ const PostPage = ({
         )
     };
 
+    // Changing status check
     const handleChangeState = () => {
         setCurrentPost(prevState => ({
             ...prevState,
@@ -52,6 +59,7 @@ const PostPage = ({
         }))
     };
 
+    // Function to delete current post
     const deletePost = () => {
         axios.delete(`https://bloggy-api.herokuapp.com/posts/${state.postToBeRenderedId}`);
         setCurrentPost(() => ({
@@ -59,16 +67,20 @@ const PostPage = ({
         }));
     };
 
+    // 'useState' hook for implement new comment sending
     const [newComment, setNewComment] = useState({
         isCommentSent: false
     });
 
+    // Function for entering new comment content
     const handleCommentContent = (e) => {
         setNewComment(prevState => ({
             ...prevState,
             body: e.target.value
         }))
     };
+
+    // Function for entering new comment author
     const handleCommentAuthor = (e) => {
         setNewComment(prevState => ({
             ...prevState,
@@ -76,6 +88,7 @@ const PostPage = ({
         }))
     };
 
+    // Send new comment function
     const sendComment = (e) => {
         e.preventDefault();
         axios.post(`https://bloggy-api.herokuapp.com/comments`, {
@@ -88,8 +101,7 @@ const PostPage = ({
         }))
     };
 
-    console.log(newComment);
-
+    // Function for rendering main content of PostPage component
     const renderPostPage = () => {
         return (
             <>
@@ -141,6 +153,7 @@ const PostPage = ({
         )
     }
 
+    // Main component of PostPage
     return (
         <div className="main__post-page">
             {
@@ -152,6 +165,7 @@ const PostPage = ({
     )
 };
 
+// Redux function for connecting reducer state to this component props
 const mapStateToProps = (state) => ({
     state
 });

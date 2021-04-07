@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const NewPostPage = () => {
+
+    // Using 'useState' hook to implement new post
     const [newPost, setNewPost] = useState({
         isFormSent: false,
     });
 
+    // Function for entering new post title
     const handleNewPostTitle = (e) => {
         setNewPost((prevState) => ({
             ...prevState,
@@ -14,6 +17,7 @@ const NewPostPage = () => {
         }))
     };
 
+    // Function for entering new post content
     const handleNewPostContent = (e) => {
         setNewPost((prevState) => ({
             ...prevState,
@@ -21,6 +25,7 @@ const NewPostPage = () => {
         }))
     };
 
+    // Submit form
     const submitForm = (e) => {
         e.preventDefault();
         function getRandomId() {
@@ -44,6 +49,7 @@ const NewPostPage = () => {
         });
     };
 
+    // Message rendered after post has been sent 
     const renderMessage = () => {
         return (
             <>
@@ -52,8 +58,7 @@ const NewPostPage = () => {
         )
     };
 
-    console.log(newPost);
-
+    // Main component of NewPostPage
     return (
         <div className="main__new-post-page">
             <h2 className="main__new-post-page__title">Create your post here</h2>

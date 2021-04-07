@@ -4,22 +4,28 @@ import axios from 'axios';
 const PostChangeForm = ({
     id,
 }) => {
+    // Using 'useState' hook to implement changing form submit
     const [changes, setChanges] = useState({
         isChangesSubmited: false
     });
 
+    // Function for entering new title for post
     const handleTitle = (e) => {
         setChanges(prevState => ({
             ...prevState,
             title: e.target.value,
         }))
     };
+
+    // Function for entering new content for post
     const handleContent = (e) => {
         setChanges(prevState => ({
             ...prevState,
             body: e.target.value,
         }))
     };
+
+    // Sumbit form function 
     const sendChanges = (e) => {
         e.preventDefault();
         axios.put(`https://bloggy-api.herokuapp.com/posts/${id}`, {
@@ -32,7 +38,7 @@ const PostChangeForm = ({
         }));
     }; 
 
-    console.log(changes);
+    // Main component of PostChangeForm
     return (
         <>
             {

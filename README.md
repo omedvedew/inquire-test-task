@@ -16,4 +16,4 @@ If you want to run this app from your local machine - follow next steps:
 ### npm start
 
 If you want to run this app in browser - just visit:
-## 
+## https://omedvedew.github.io/inquire-test-task/

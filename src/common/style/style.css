@@ -1,3 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
 
+.header {
+  display: flex;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  position: sticky;
+}
+.header .header__logo {
+  display: flex;
+  width: 20%;
+  justify-content: center;
+}
+.header .header__logo .header__logo__item {
+  display: flex;
+  width: 100px;
+  height: 15px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+.header .header__logo .header__logo__item:hover {
+  transition: all 0.3s;
+  transform: scale(1.2);
+}
+.header .header__menu {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+}
+.header .header__menu .header__menu__item {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+}
+.header .header__menu .header__menu__item:hover {
+  transition: all 0.3s;
+  border: 1px solid black;
+  transform: scale(1.2);
+  background: linear-gradient(to right bottom, aqua, #009696);
+  box-shadow: 0px 0px 15px rgba(0, 55, 55, 0.6);
+}
 
 /*# sourceMappingURL=style.css.map */
